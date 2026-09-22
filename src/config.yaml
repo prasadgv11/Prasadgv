@@ -1,0 +1,22 @@
+# Root run configuration. Everything about a run - which bank, which
+# environment, which browser, headless or not, and sanity vs regression -
+# is controlled from this single file. No CLI flags needed.
+
+
+bank: ecentric        # ecentric | fab | oab | neoleap | pinelaps | wio
+env: qa              # qa | uat | prod
+browser: chromium
+headless: false
+test_type: sanity      # sanity | regression | all
+
+# Email settings for sending the report after a run completes.
+# enabled: false by default - flip to true once smtp/credentials are filled in.
+email:
+  enabled: false
+  # Sent via the local Outlook desktop app (pywin32 COM automation) - no
+  # SMTP host/port/credentials needed, it reuses whichever account is
+  # already signed into Outlook on this machine. Requires Outlook installed
+  # and pip install pywin32.
+  recipients:
+    - qa_team@example.com
+  send_only_on_failure: false
